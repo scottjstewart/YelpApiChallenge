@@ -9,13 +9,13 @@ import { Observable } from "rxjs";
 })
 export class AppComponent {
   title = "yelp-api-challenge";
-  results: any;
+  businesses: any;
   constructor(private data: DataService) {}
 
   onClick(price, location, search): void {
     console.log(price, location, price);
     this.data
       .getSearch(price, location, search)
-      .subscribe(data => (this.results = data.businesses));
+      .subscribe(data => (this.businesses = data.businesses));
   }
 }

@@ -22,9 +22,21 @@
   Search
 </button>
 <div>
-  <ul>
-    <li *ngFor="let result of results">
-      <p>{{ result | json }}</p>
+  <ul
+    *ngFor="let business of (businesses | slice: 0:1); let i = index"
+    ng-If="!business.is_closed"
+  >
+    <li>
+      <!-- <p>{{ business | json }}</p> -->
+      <h1>{{ business.name }}</h1>
+      <img src="{{ business.image_url }}" style="width:128px;height:128px;" />
+      <h2>Business Rating: {{ business.rating }}</h2>
+      <h2>Cost: {{ business.price }}</h2>
+      <h2>Contact Info</h2>
+      <h2>{{ business.phone }}</h2>
+      <h2>{{ business.location.address1 }}</h2>
+      <h2>{{ business.location.city }}</h2>
+      <h2>{{ business.location.zip_code }}</h2>
     </li>
   </ul>
 </div>
